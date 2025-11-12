@@ -25,10 +25,16 @@ department_to_focus = "38"  # Remplacez par le département à cibler
 # Filtrer les données du DataFrame pour le département spécifique
 filtered_department_df = df[df['N_Département'] == department_to_focus]
 
+# Convert numeric department codes to strings
+unique_departement = ["Tous les départements"] + sorted([str(d) for d in df['N_Département'].unique().tolist()])
 
+Option_N_département = st.selectbox(
+    "Choisissez un département :",
+    unique_departement,
+    key="departement_selectbox"
+)
 
-
-# Convertir en float uniquement si un département réel est choisi
+# Convert to float only if a real department is selected
 Option_N_départementAsFloat = None
 if Option_N_département != "Tous les départements":
     try:
@@ -37,11 +43,13 @@ if Option_N_département != "Tous les départements":
         st.error("La valeur choisie n'est pas un nombre valide.")
 
 
+
 # Filtrer les villes en fonction du département sélectionné
 if Option_N_département == "Tous les départements":
     unique_villes = ["Toutes les villes"] + sorted(df['Ville'].dropna().unique().tolist())
 else:
     unique_villes = ["Toutes les villes"] + sorted(df[df['N_Département'] == Option_N_département]['Ville'].dropna().unique().tolist())
+
 
 # Sélectionner la ville
 Option_unique_ville = st.selectbox("Choisissez une ville :", unique_villes, key="ville_selectbox")

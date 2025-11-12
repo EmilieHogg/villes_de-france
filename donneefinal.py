@@ -182,7 +182,7 @@ if Option_N_département:  # Check if user selected something
     except ValueError:
         st.error("La valeur choisie n'est pas un nombre valide.")
 
-Option_N_départementAsFloat = float(Option_N_département)
+# Option_N_départementAsFloat = float(Option_N_département)
 
 
 festival_first_10_cols['N_Département'] = (

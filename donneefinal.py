@@ -161,6 +161,20 @@ df_site_architecture.columns = df_site_architecture.columns.str.strip()
                                   
 #df_site_architecture['N_Département'] = df_site_architecture['N_Département'].astype(str).str.strip()
 
+# Option_N_département comes from a selectbox or input
+Option_N_département = st.selectbox(
+    "Choisir un département",
+    ["", "13", "69", "75", "31"],  # "" represents no selection
+    index=0
+)
+
+# Safely convert only if a department is selected
+Option_N_départementAsFloat = None  # Default if nothing selected
+if Option_N_département:  # Check if user selected something
+    try:
+        Option_N_départementAsFloat = float(Option_N_département)
+    except ValueError:
+        st.error("La valeur choisie n'est pas un nombre valide.")
 
 Option_N_départementAsFloat = float(Option_N_département)
 

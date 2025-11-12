@@ -32,6 +32,15 @@ unique_departement = ["Tous les départements"] + sorted(df['N_Département'].un
 Option_N_département = st.selectbox("Choisissez un département :", unique_departement, key="departement_selectbox" )  # Unique key 
 
 
+# Convertir en float uniquement si un département réel est choisi
+Option_N_départementAsFloat = None
+if Option_N_département != "Tous les départements":
+    try:
+        Option_N_départementAsFloat = float(Option_N_département)
+    except ValueError:
+        st.error("La valeur choisie n'est pas un nombre valide.")
+
+
 # Filtrer les villes en fonction du département sélectionné
 if Option_N_département == "Tous les départements":
     unique_villes = ["Toutes les villes"] + sorted(df['Ville'].dropna().unique().tolist())
@@ -160,13 +169,6 @@ df_site_architecture.columns = df_site_architecture.columns.str.strip()
 #festival_first_10_cols = festival_first_10_cols.columns.str.strip()
                                   
 #df_site_architecture['N_Département'] = df_site_architecture['N_Département'].astype(str).str.strip()
-
-# Option_N_département comes from a selectbox or input
-Option_N_département = st.selectbox(
-    "Choisir un département",
-    ["", "13", "69", "75", "31"],  # "" represents no selection
-    index=0
-)
 
 # Safely convert only if a department is selected
 Option_N_départementAsFloat = None  # Default if nothing selected

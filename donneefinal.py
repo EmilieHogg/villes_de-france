@@ -215,7 +215,7 @@ df_departements_de_france['N_Département'], errors='coerce'
 )
 departement_de_france_correspondant = df_departements_de_france.query('N_Département == @Option_N_départementAsFloat')["Département"]
 
-st.write('emilie2', len (departement_de_france_correspondant))
+
 
 departement_de_france_name = departement_de_france_correspondant.iloc[0] if not departement_de_france_correspondant.empty else "Inconnu"
 

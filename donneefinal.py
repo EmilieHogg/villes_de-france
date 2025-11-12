@@ -27,10 +27,6 @@ filtered_department_df = df[df['N_Département'] == department_to_focus]
 
 
 
-# Sélectionner le département
-unique_departement = ["Tous les départements"] + sorted(df['N_Département'].unique().tolist())
-Option_N_département = st.selectbox("Choisissez un département :", unique_departement, key="departement_selectbox" )  # Unique key 
-
 
 # Convertir en float uniquement si un département réel est choisi
 Option_N_départementAsFloat = None

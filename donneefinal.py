@@ -179,10 +179,6 @@ festival_first_10_cols['N_Département'] = pd.to_numeric(
     festival_first_10_cols['N_Département'], errors='coerce'
 ).astype(float)
 
-st.write('emilie', festival_first_10_cols['N_Département'].head())
-st.write('emilie 2', Option_N_département)
-st.write('emilie 3', Option_N_départementAsFloat)
-st.write('emilie 4', festival_first_10_cols.query('N_Département == @Option_N_départementAsFloat'))
 
 
 festival_correspondant = festival_first_10_cols.query('N_Département == @Option_N_départementAsFloat')["Département"]

@@ -1,3 +1,5 @@
 python
 pandas
 plotly
+pydeck
+streamlit

@@ -1,8 +1,4 @@
-pandas
-plotly
-pydeck
-streamlit
-python
+
 # Core app dependencies
 streamlit==1.55.0
 altair==4.2.2

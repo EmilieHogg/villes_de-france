@@ -3,3 +3,19 @@ plotly
 pydeck
 streamlit
 python
+# Streamlit and visualization
+streamlit==1.19.0
+altair==4.2.2
+plotly==6.6.0
+pydeck==0.9.1
+
+# Data handling
+pandas==3.0.1
+numpy==2.4.3
+python-dateutil==2.9.0.post0
+
+# HTTP requests
+requests==2.32.5
+
+# Optional but helpful for logging and debugging
+rich==14.3.3
